@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: indianred;
 }
 
 .bookmark__form {
@@ -12,24 +13,41 @@ body {
 
 .bookmark__list ul li{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   width: 30vw;
   height: auto;
   font-size: 2vw;
-  padding: 10px;
+  padding: 15px 0 15px 15px;
   box-sizing: border-box;
 }
 
 li {
   list-style: none;
-  border: 2px solid grey;
+  border: 2px solid snow;
   margin: auto;
   margin-bottom: 30px;
+
+  opacity: 0;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: snow;
+}
 
+.link__active-fade {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 300ms;
+}
 
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
