@@ -17,9 +17,10 @@ class BookmarkForm extends Component {
 
   }
 
+
   render (){
     return (
-      <div className="container jumbotron">
+      <div className="container">
         <header>
           <h1>ReactBookmarker</h1>
         </header>
@@ -36,6 +37,7 @@ class BookmarkForm extends Component {
       </div>
     )
   }
+
 }
 
 

@@ -7,16 +7,9 @@ class BookmarkList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []};
-  }
-
-  getInitialState() {
-    var selectedOption = JSON.parse(localStorage.getItem( "data" ));
-    return {
-        selectedOption: selectedOption
+      data: []
     };
   }
-
 
   addBookmark (newBookmark) {
     let newData = this.state.data.concat(newBookmark);
@@ -27,25 +20,28 @@ class BookmarkList extends React.Component {
     localStorage.state = JSON.stringify(this.state);
   }
 
-  deleteBookmark (e) {
+//remove bookmark - only removes from the top
+/*  deleteBookmark (e) {
     var array = this.state.data;
     var index = array.indexOf(e.target.value)
     array.splice(index, 1);
     this.setState({data:array});
 
-  }
+    //replace with span in render
+    <span className="delete" onClick={this.deleteBookmark.bind(this)}>✖</span>
+  }*/
 
   render (){
     let data = this.state.data;
     let bookmarkList = data.map((bookmark, index) => {
       return <li key={index} className="link__active-fade">
                 <a href={bookmark.url} target="_blank">{bookmark.name}</a>
-                <span className="delete" onClick={this.deleteBookmark.bind(this)}>✖</span>
+                <span className="delete">✖</span>
               </li>
     });
     return (
       <div>
-      <div className="bookmark__form">
+      <div>
         <BookmarkForm addBookmark={this.addBookmark.bind(this)} />
       </div>
       <div className="bookmark__list">
